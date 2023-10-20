@@ -1,0 +1,14 @@
+@{
+    Layout = "_Layout";
+}
+@model TreatTracker.Models.Treat
+
+<h2>Remove Treat</h2>
+
+@Html.DisplayNameFor(model => model.Name) @Html.DisplayFor(model => model.Name)
+<br>
+@using (Html.BeginForm("Delete", "Treats", new { id = Model.TreatId }))
+{
+    <input type="submit" value="Delete" />
+}
+

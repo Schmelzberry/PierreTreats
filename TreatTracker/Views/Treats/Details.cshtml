@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TreatTracker.Models.Treat
+@using TreatTracker.Models
+
+<h2>Treat Details</h2>
+<hr />
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+<hr />
+<p>@Html.ActionLink("Edit Treat", "Edit", new {id = Model.TreatId})</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new {id = Model.TreatId})</p>
