@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Factory.Models;
+using TreatTracker.Models;
+
 
 namespace Treats
 {
@@ -11,7 +12,7 @@ namespace Treats
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<TreatContext>(
+            builder.Services.AddDbContext<TreatTrackerContext>(
                 dbContextOptions => dbContextOptions.UseMySql(
                     builder.Configuration["ConnectionStrings:DefaultConnection"],
                     ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"])));
