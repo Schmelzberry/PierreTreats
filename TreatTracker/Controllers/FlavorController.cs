@@ -37,7 +37,10 @@ namespace TreatTracker.Controllers
 
     public ActionResult Details(int id)
     {
-      Flavor flavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      Flavor flavor = _db.Flavors
+                       .Include (model => model.FlavorTreats)
+                       .ThenInclude(join => join.Treat)
+                       .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(flavor);
     }
 
