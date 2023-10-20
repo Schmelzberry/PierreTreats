@@ -5,6 +5,7 @@ namespace TreatTracker.Models
     public class TreatTrackerContext : DbContext
     {   public DbSet<Treat> Treats { get; set; }
         public DbSet<Flavor> Flavors { get; set; }
+        public DbSet<FlavorTreat> FlavorTreats { get; set; }
         public TreatTrackerContext(DbContextOptions options)
         
             : base(options) { }

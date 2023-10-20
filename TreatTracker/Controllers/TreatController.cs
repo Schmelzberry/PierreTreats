@@ -68,8 +68,21 @@ namespace TreatTracker.Controllers
       _db.Treats.Remove(treat);
       _db.SaveChanges();
       return RedirectToAction("Index");
-
     }
+
+    public ActionResult AddFlavor(int id)
+    {
+      Treat treat = _db.Treats.FirstOrDefault(model => model.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      return View(treat);
+    }
+
+    // [HttpPost]
+    // public ActionResult AddFlavor(Treat treat, int flavorId)
+    // {
+    //   #nullable enable 
+
+    // }
 
   }
 }

@@ -9,5 +9,6 @@
 <hr />
 <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
 <hr />
+<p>@Html.ActionLink("Add Flavor To Treat", "AddFlavor", new {id = Model.TreatId})</p>
 <p>@Html.ActionLink("Edit Treat", "Edit", new {id = Model.TreatId})</p>
 <p>@Html.ActionLink("Delete Treat", "Delete", new {id = Model.TreatId})</p>
