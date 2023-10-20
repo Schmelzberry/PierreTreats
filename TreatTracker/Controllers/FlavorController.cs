@@ -5,7 +5,7 @@ using System.Linq;
 using System.Collections.Generic;
 using TreatTracker.Models;
 
-namespace TreatTracker.Controller 
+namespace TreatTracker.Controllers
 {
   public class FlavorsController : Controller 
   {
@@ -34,5 +34,42 @@ namespace TreatTracker.Controller
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      Flavor flavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(flavor);
+    }
+
+    public ActionResult Edit(int id)
+    {
+      Flavor flavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(flavor);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Flavor flavor)
+    {
+      _db.Flavors.Update(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Delete(int id)
+    {
+      Flavor flavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(flavor);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirm(int id)
+    {
+      Flavor flavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      _db.Flavors.Remove(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+
+    }
+
   }
 }

@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TreatTracker.Models.Flavor
+
+<H2>Edit @Html.DisplayFor(model => model.Name)</h3>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <br>
+  <input type="submit" value="Update Flavor Details"/>
+}
+
+<p>@Html.ActionLink("Back To Flavor", "Details", new {id = Model.FlavorId})</p>
