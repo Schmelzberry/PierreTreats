@@ -37,7 +37,10 @@ namespace TreatTracker.Controllers
 
     public ActionResult Details(int id)
     {
-      Treat treat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      Treat treat = _db.Treats
+                       .Include (model => model.FlavorTreats)
+                       .ThenInclude(join => join.Flavor)
+                       .FirstOrDefault(treat => treat.TreatId == id);
       return View(treat);
     }
 
@@ -77,12 +80,20 @@ namespace TreatTracker.Controllers
       return View(treat);
     }
 
-    // [HttpPost]
-    // public ActionResult AddFlavor(Treat treat, int flavorId)
-    // {
-    //   #nullable enable 
-
-    // }
+    [HttpPost]
+    public ActionResult AddFlavor(Treat treat, int flavorId)
+    {
+      #nullable enable 
+      FlavorTreat? flavorTreat = _db.FlavorTreats
+        .FirstOrDefault(join => (join.FlavorId == flavorId && join.TreatId == treat.TreatId));
+      #nullable disable
+        if(flavorTreat == null && flavorId != 0)
+        {
+          _db.FlavorTreats.Add(new FlavorTreat() {FlavorId = flavorId, TreatId = treat.TreatId });
+          _db.SaveChanges();
+        }
+        return RedirectToAction("Details", new {id = treat.TreatId});
+    }
 
   }
 }
