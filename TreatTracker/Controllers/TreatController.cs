@@ -4,9 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Collections.Generic;
 using TreatTracker.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TreatTracker.Controllers
-{
+{ [Authorize]
   public class TreatsController : Controller 
   {
     private readonly TreatTrackerContext _db;
@@ -15,7 +16,7 @@ namespace TreatTracker.Controllers
     {
       _db = db;
     }
-
+    [AllowAnonymous]
     public ActionResult Index()
     {
       List<Treat> treats = _db.Treats.ToList();
@@ -34,7 +35,7 @@ namespace TreatTracker.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       Treat treat = _db.Treats
