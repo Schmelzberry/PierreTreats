@@ -2,11 +2,18 @@
   Layout = "_Layout";
 }
 
-<h2>Authentication with Identity</h2>
+<h2>User Home</h2>
+
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
+  <h6>Hello @User.Identity.Name</h6>
+  <ul>
+    <li>Signed in users have the ability to add, update, and delete flavors & treats from the database. </li>
+    <li>If you're simply here to view Pierre's treats and flavors, you don't need an account!</li>
+  </ul>
+  <hr />
+  <h6>All set? Visit home page or LogIn/LogOut below:</h6>
   @using (Html.BeginForm("LogOff", "Account"))
   {
     <input type="submit" class="btn btn-primary" value="Log out" />
@@ -17,4 +24,3 @@ else
   <p>@Html.ActionLink("Register", "Register")</p>
   <p>@Html.ActionLink("Log in", "Login")</p>
 }
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
