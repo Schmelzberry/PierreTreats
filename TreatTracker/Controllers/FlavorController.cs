@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using TreatTracker.Models;
 
 namespace TreatTracker.Controllers
-{
+{ [Authorize]
   public class FlavorsController : Controller 
   {
     private readonly TreatTrackerContext _db;
