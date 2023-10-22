@@ -64,9 +64,9 @@ $ dotnet watch run
 > If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS.
 
 
-## Known Bugs
+## Known Bugs or Potential Issues
 
-* If any bugs are discovered, please contact the author(s).
+* Models currently lack data annotations, but project functions well without them.
 
 ## License
 
