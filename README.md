@@ -9,9 +9,12 @@
 * C#
 * .NET 6
 * ASP.NET Core MVC
+* ASP.NET Core Identity
 * Entity Framework Core
 * MySQL
 * MySQL Workbench
+* Pomelo
+
 
 ## Description
 
@@ -27,14 +30,14 @@ To set up a new database to run with this application, follow the instructions i
 
 #### Install and Run the Project
 
-1. Copy the **[URL](https://github.com/Schmelzberry/Factory.git)** provided for this repository.
+1. Copy the **[URL](https://github.com/Schmelzberry/PierreTreats.git)** provided for this repository.
 2. Open Terminal.
 3. Change your working directory to where you want the cloned directory.
 4. In your terminal, type `git clone` and use the copied URL from Step 1. Or, copy the following git command:
 ```bash
-$ git clonehttps://github.com/Schmelzberry/Factory.git
+$ git clone https://github.com/Schmelzberry/PierreTreats.git
 ```
-5. Open your terminal and navigate to this project's production directory called `Factory`.
+5. Open your terminal and navigate to this project's production directory called `TreatTracker`.
 6. Within the production directory of the project, create a file called `appsettings.json` and add the following code to it:
    ```json
     {
