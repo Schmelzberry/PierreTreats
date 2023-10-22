@@ -18,7 +18,7 @@
 
 ## Description
 
-A website for Pierre to track his various treats.
+A website for Pierre to track his various treats. Only Users who make an account can create, change, and delete items from the website. All other users can view the list of items and their details.
 
 ## Setup/Installation Requirements
 
@@ -26,8 +26,7 @@ A website for Pierre to track his various treats.
 This project assumes you have MySQL Server and MySQL Workbench installed on your system. If necessary, follow along with the installation steps for the tools introduced in these series of lessons on [LearnHowToProgram](https://full-time.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-c-and-net).
 
 #### Set Up the Database
-To set up a new database to run with this application, follow the instructions in this [LearnHowToProgram Lesson](https://full-time.learnhowtoprogram.com/c-and-net/database-basics/creating-a-test-database-exporting-and-importing-databases-with-mysql-workbench). You'll need to import the `jake_elsberry.sql` file located at the top level of this repository to create a new database in MySQL Workbench with the name `factory_context`.
-
+To set up a new database to run with this application, follow the instructions in this [LearnHowToProgram Lesson](https://full-time.learnhowtoprogram.com/c-and-net/database-basics/creating-a-test-database-exporting-and-importing-databases-with-mysql-workbench).
 #### Install and Run the Project
 
 1. Copy the **[URL](https://github.com/Schmelzberry/PierreTreats.git)** provided for this repository.
@@ -47,8 +46,13 @@ $ git clone https://github.com/Schmelzberry/PierreTreats.git
     }
    ```
 7. Next, make sure to update the connection string with your own system's values for `[USERNAME]` and `[PASSWORD]` and `[DATABASE]`! Don't forget to replace the brackets `[]` as well.
-8. Now that your connection string is ready, head over to MySql Workbench and once signed in using your username and password, navigate to Administration tab.
-9. Next, select `Data Import/Restore` followed by `choose Import from Self-Contained File`, named `jake_elsberry.sql`, give your database a name. Lastly, press Start Import once all requisite DB options are selected.
+8. Now that your connection string is ready, from the `TreatTracker` directory, run the following command:
+
+```bash
+$ dotnet ef database update
+```
+
+9. Now that the database schema is in place, we're ready to run the program. 
 10. In the command line, run the following command to compile and run web application in development mode with a watcher:
    
 ```bash
