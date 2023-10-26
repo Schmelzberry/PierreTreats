@@ -5,9 +5,10 @@
 @model TreatTracker.Models.Flavor
 
 <H2>Edit @Html.DisplayFor(model => model.Name)</h3>
-<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
 @using (Html.BeginForm())
 {
+  <p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
   @Html.HiddenFor(model => model.FlavorId)
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
