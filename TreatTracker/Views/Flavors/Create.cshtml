@@ -5,6 +5,7 @@
 @model TreatTracker.Models.Flavor
 
 <h2>Flavor Deets</h2>
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
